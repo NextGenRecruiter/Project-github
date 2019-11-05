@@ -5,36 +5,40 @@
 #include <iostream>
 using namespace std;
 
-void increment(int* a, int* b);
+//function prototype
+void result(int* paramOne, int* paramTwo);
 
 int main() {
-    
-    int a, b;
+    //local variables
+    int paramOne, paramTwo;
     
     cout<<"--------------------------------------------------------------------------"<<endl;
     cout<<"This program will output the sum of two numbers and their absolute value"<<endl;
     cout<<"--------------------------------------------------------------------------"<<endl;
     cout<<"Enter the first number: "<<endl;
-    cin>>a;
+    cin>>ParamOne;
     cout<<"Enter the second number: "<<endl;
-    cin>>b;
+    cin>>paramTwo;
     
-    increment(&a, &b);
+    //sending user input to increment function
+    result(&paramOne, &paramTwo);
    
     return 0;
 }
 
-void increment(int* a, int* b){
+void result(int* paramOne, int* paramTwo){
     int sum = 0;
-    int absoluteV = 0;
+    int absoluteValue = 0;
+    //calculating the sum of two numbers
+    sum = *paramOne + *paramTwo;
+    //calculating the absolute value of two numbers by using ternary operator
+    absoluteValue = *paramOne + *paramTwo > 0 ? *paramOne - *paramTwo : -(*paramOne - *paramTwo);
     
-    sum = *a + *b;
-    absoluteV = *a + *b > 0 ? *a - *b : -(*a - *b);
+    *paramOne = sum;
+    *paramTwo = absoluteValue;
     
-    *a = sum;
-    *b = absoluteV;
-    
+    //printing results
     cout<<"The sum of the two numbers are "<<sum<<endl;
-    cout<<"The absolute value of the two numbers are "<<absoluteV<<endl;
+    cout<<"The absolute value of the two numbers are "<<absoluteValue<<endl;
     
 }
